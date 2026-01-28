@@ -1,17 +1,28 @@
 ---
-
+import BaseLayout from "../layouts/BaseLayout.astro"
+import data from "../../public/webring.json";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="home">
+	<h2>Welcome to the Webring!</h2>
+	<p>
+		Hello and welcome to the website for the Conehead
+		webring, a webring for Conan Gray fans.
+	</p>
+
+	<h3>current members ({data.length}):</h3>
+	<div class="scroll">
+		{
+			data.map((site) => (
+				<div class="site">
+					<a href={site.url}><img src={site.btn} width="88" /></a>
+					<div class="site-content">
+						<a href={site.url}>{site.name}</a>
+						<p>{site.desc}</p>
+					</div>
+				</div>
+				<hr />
+			))
+		}
+	</div>
+</BaseLayout>
