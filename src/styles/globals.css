@@ -93,3 +93,13 @@ aside ul li {
 .site p {
     margin: 0;
 }
+
+@media screen and (max-width: 720px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 1.25rem;
+    }
+}
