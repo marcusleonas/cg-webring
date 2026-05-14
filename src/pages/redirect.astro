@@ -22,7 +22,11 @@
                         (site: any) =>
                             site.name.toLowerCase() == name!.toLowerCase()
                     );
-                    const matchedSite = sites[matchedSiteIndex];
+
+                    if (!sites[matchedSiteIndex]) {
+                        window.location.replace("https://coneheads.n3bula.lol");
+                        return;
+                    }
 
                     if (dir == "prev") {
                         let prevSiteIndex = matchedSiteIndex - 1;
